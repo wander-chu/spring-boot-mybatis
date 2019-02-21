@@ -1,4 +1,4 @@
-# Spring Boot集成MyBatis,分页插件PageHelper,通用Mapper 
+# Spring Boot集成MyBatis，分页插件PageHelper，通用Mapper 
 
 ## 主要内容
 
