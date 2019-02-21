@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springbootmybatis.mapper.ProvinceMapper">
+    <resultMap id="rm" type="com.example.springbootmybatis.model.Province">
+        <id property="id" column="id"/>
+        <result property="provincecode" column="provincecode"/>
+        <result property="provincename" column="provincename"/>
+        <collection property="cities" ofType="com.example.springbootmybatis.model.City" select="getCities" column="id">
+        </collection>
+    </resultMap>
+    <select id="getAllProvinces" parameterType="Integer" resultMap="rm">
+        <![CDATA[
+        select id, provincecode, provincename
+          from province
+        ]]>
+    </select>
+    <select id="getCities" parameterType="Integer" resultType="com.example.springbootmybatis.model.City">
+        <![CDATA[
+        select id, cityname
+          from city
+         where p_id = #{id}
+        ]]>
+    </select>
+</mapper>
