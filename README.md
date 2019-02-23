@@ -1,13 +1,15 @@
-# Spring Boot集成MyBatis，分页插件PageHelper，通用Mapper 
+# Spring Boot集成MyBatis
+Spring Boot集成MyBatis、通用Mapper、分页插件PageHelper。
 
-## 主要内容
+## 功能支持
+1. 使用分页插件PageHelper物理分页
+2. 通过通用Mapper提供的通用方法查询数据
+3. 通过xml和注解中编写sql的方式查询数据
+4. 一对一、一对多的关联关系查询数据
+5. Controller的单元测试
 
-    1.使用分页插件PageHelper实现MyBatis的物理分页
-    2.通过通用Mapper提供的通用方法查询数据。
-    3.通过xml和注解中编写sql的方式查询数据。
-    4.一对一、一对多的关联关系查询数据。
-    5.Controller的单元测试。
-
+## 后续功能
+* 持续更新……
 
 ## 项目依赖
 ```xml
@@ -39,7 +41,7 @@
 </dependencies>
 ```
 
-## application.properties 配置
+## application.properties配置
 ```properties
 # mybatis
 mybatis.type-aliases-package=com.example.springbootmybatis.model
