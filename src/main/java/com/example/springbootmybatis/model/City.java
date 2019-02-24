@@ -7,7 +7,7 @@ public class City extends BaseEntity {
     /**
      * 城市名称
      */
-    private String cityname;
+    private String cityName;
 
     /**
      * 所属省份
@@ -17,19 +17,19 @@ public class City extends BaseEntity {
     /**
      * 获取城市名称
      *
-     * @return cityname - 城市名称
+     * @return cityName - 城市名称
      */
-    public String getCityname() {
-        return cityname;
+    public String getCityName() {
+        return cityName;
     }
 
     /**
      * 设置城市名称
      *
-     * @return cityname - 城市名称
+     * @return cityName - 城市名称
      */
-    public void setCityname(String cityname) {
-        this.cityname = cityname;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     /**

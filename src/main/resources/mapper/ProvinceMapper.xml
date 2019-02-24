@@ -3,24 +3,37 @@
 <mapper namespace="com.example.springbootmybatis.mapper.ProvinceMapper">
     <resultMap id="provinceMap" type="Province">
         <id property="id" column="id"/>
-        <result property="provincecode" column="provincecode"/>
-        <result property="provincename" column="provincename"/>
+        <result property="provinceCode" column="province_code"/>
+        <result property="provinceName" column="province_name"/>
     </resultMap>
     <resultMap id="provinceCityMap" extends="provinceMap" type="Province">
-        <id property="id" column="id"/>
-        <result property="provincecode" column="provincecode"/>
-        <result property="provincename" column="provincename"/>
         <collection property="cities" column="p_id=id"
                     select="com.example.springbootmybatis.mapper.CityMapper.getCitiesByProvinceId">
         </collection>
     </resultMap>
     <select id="getProvinceById"  resultMap="provinceMap">
-        select id, provincecode, provincename
+        select id, province_code, province_name
           from province
          where id = #{id}
     </select>
     <select id="getAllProvinces"  resultMap="provinceCityMap">
-        select id, provincecode, provincename
+        select id, province_code, province_name
           from province
+    </select>
+    <select id="getAllProvincesByProvinceNameOrProvinceCodeList" resultType="HashMap">
+        select id, province_code, province_name
+          from province
+         <where>
+             <if test="provinceName != null and provinceName != ''">
+                 <bind name="provinceNameLike" value="'%' + provinceName + '%'"></bind>
+                 or province_name like #{provinceNameLike}
+             </if>
+             <if test="provinceCodes != null and provinceCodes.size() > 0">
+                 or province_code in
+                 <foreach collection="provinceCodes" open="(" close=")" separator=", " index="index" item="item">
+                     #{item}
+                 </foreach>
+             </if>
+         </where>
     </select>
 </mapper>

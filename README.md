@@ -5,8 +5,9 @@ Spring Boot集成MyBatis、通用Mapper、分页插件PageHelper。
 1. 使用分页插件PageHelper物理分页
 2. 通过通用Mapper提供的通用方法查询数据
 3. 通过xml和注解中编写sql的方式查询数据
-4. 一对一、一对多的关联关系查询数据
-5. 单元测试
+4. 一对一、一对多的关联关系查询（嵌套查询）
+5. 标签if、where、foreach、bind等的用法
+6. 查询结果返回Map的方法
 
 ## 后续功能
 * 存储过程的使用

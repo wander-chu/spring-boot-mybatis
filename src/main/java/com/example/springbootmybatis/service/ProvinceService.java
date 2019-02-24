@@ -29,20 +29,20 @@ public class ProvinceService {
     public List<Province> getByConditional() {
         Weekend<Province> weekend = Weekend.of(Province.class);
         WeekendCriteria<Province, Object> criteria = weekend.weekendCriteria();
-        criteria.andLike(Province::getProvincename, "%" + "江" + "%");
-        criteria.andLike(Province::getProvincecode, "%" + "X" + "%");
+        criteria.andLike(Province::getProvinceName, "%" + "江" + "%");
+        criteria.andLike(Province::getProvinceCode, "%" + "X" + "%");
 
         //添加or条件
         WeekendCriteria<Province, Object> criteria2 = weekend.weekendCriteria();
-        criteria2.andEqualTo(Province::getProvincename, "山东");
+        criteria2.andEqualTo(Province::getProvinceName, "山东");
         weekend.or(criteria2);
 
         WeekendCriteria<Province, Object> criteria3 = weekend.weekendCriteria();
-        criteria3.andIn(Province::getProvincecode, Arrays.asList("XJ","SC"));
+        criteria3.andIn(Province::getProvinceCode, Arrays.asList("XJ","SC"));
         weekend.or(criteria3);
 
         //排序
-        weekend.setOrderByClause("provincecode desc, id asc");
+        weekend.setOrderByClause("province_code desc, id asc");
         return provinceMapper.selectByExample(weekend);
     }
 

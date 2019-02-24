@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -30,6 +33,14 @@ public class ProvinceMapperTest {
     @Test
     public void getAllProvinces() {
         List<Province> provinces = provinceMapper.getAllProvinces();
+        assertNotNull(provinces);
+        assertTrue(provinces.size() > 0);
+    }
+
+    @Test
+    public void getAllProvincesByProvinceNameOrProvinceCodeList() {
+        List<String> codes = Arrays.asList("HN", "HB");
+        List<Map<String, Object>>  provinces = provinceMapper.getAllProvincesByProvinceNameOrProvinceCodeList("山东", codes);
         assertNotNull(provinces);
         assertTrue(provinces.size() > 0);
     }

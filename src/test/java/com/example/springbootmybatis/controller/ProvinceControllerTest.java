@@ -46,8 +46,8 @@ public class ProvinceControllerTest {
         //构造要添加的省份信息
         Province province = new Province();
         //province.setId(1000);
-        province.setProvincecode("XJ");
-        province.setProvincename("新疆");
+        province.setProvinceCode("XJ");
+        province.setProvinceName("新疆");
 
         //调用接口，传入添加的省份参数
         //ObjectMapper mapper = new ObjectMapper();
@@ -55,14 +55,14 @@ public class ProvinceControllerTest {
                 //.contentType(MediaType.APPLICATION_JSON_UTF8)
                 //.content(mapper.writeValueAsString(province)))
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("provincecode", province.getProvincecode())
-                .param("provincename", province.getProvincename()))
+                .param("provinceCode", province.getProvinceCode())
+                .param("provinceName", province.getProvinceName()))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$.msg", is("新增成功")))
                 .andExpect(jsonPath("$.province", notNullValue()))
                 .andExpect(jsonPath("$.province.id", not(0)))
-                .andExpect(jsonPath("$.province.provincecode", is("XJ")));
+                .andExpect(jsonPath("$.province.provinceCode", is("XJ")));
     }
 
     /**
@@ -77,8 +77,8 @@ public class ProvinceControllerTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                 .andExpect(jsonPath("$", notNullValue()))
                 .andExpect(jsonPath("$.id", is(1)))
-                .andExpect(jsonPath("$.provincecode", is("SD")))
-                .andExpect(jsonPath("$.provincename", is("山东")));
+                .andExpect(jsonPath("$.provinceCode", is("SD")))
+                .andExpect(jsonPath("$.provinceName", is("山东")));
     }
 
     /**

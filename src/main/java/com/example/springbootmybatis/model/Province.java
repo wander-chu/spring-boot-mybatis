@@ -9,12 +9,12 @@ public class Province extends BaseEntity {
     /**
      * 代码
      */
-    private String provincecode;
+    private String provinceCode;
 
     /**
      * 名称
      */
-    private String provincename;
+    private String provinceName;
 
     /**
      * 城市列表
@@ -24,37 +24,37 @@ public class Province extends BaseEntity {
     /**
      * 获取代码
      *
-     * @return provincecode - 代码
+     * @return provinceCode - 代码
      */
-    public String getProvincecode() {
-        return provincecode;
+    public String getProvinceCode() {
+        return provinceCode;
     }
 
     /**
      * 设置代码
      *
-     * @param provincecode 代码
+     * @param provinceCode 代码
      */
-    public void setProvincecode(String provincecode) {
-        this.provincecode = provincecode;
+    public void setProvinceCode(String provinceCode) {
+        this.provinceCode = provinceCode;
     }
 
     /**
      * 获取名称
      *
-     * @return provincename - 名称
+     * @return provinceName - 名称
      */
-    public String getProvincename() {
-        return provincename;
+    public String getProvinceName() {
+        return provinceName;
     }
 
     /**
      * 设置名称
      *
-     * @param provincename 名称
+     * @param provinceName 名称
      */
-    public void setProvincename(String provincename) {
-        this.provincename = provincename;
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
     }
 
     /**
