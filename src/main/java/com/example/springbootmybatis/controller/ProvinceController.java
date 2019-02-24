@@ -36,12 +36,6 @@ public class ProvinceController {
         return province;
     }
 
-    @RequestMapping(value = "/view-one")
-    public Province view() {
-        Province province = provinceService.findOne();
-        return province;
-    }
-
     @RequestMapping(value = "/delete/{id}")
     public ModelMap delete(@PathVariable Integer id) {
         ModelMap result = new ModelMap();

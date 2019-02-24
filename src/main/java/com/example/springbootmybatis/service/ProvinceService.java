@@ -91,13 +91,4 @@ public class ProvinceService {
             provinceMapper.insertSelective(province);
         }
     }
-
-    /**
-     * 根据获取第一条省份信息
-     *
-     * @return 省份实体对象
-     */
-    public Province findOne() {
-        return provinceMapper.findOne();
-    }
 }
