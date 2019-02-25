@@ -173,3 +173,8 @@ spring.redis.jedis.pool.max-idle=500
     />
 </ehcache>
 ```
+
+## 更多资源
+[Spring Boot开源项目](https://github.com/wander-chu/java-microservice-demo)
+
+[Spring Security开源项目](https://github.com/wander-chu/spring-boot-security)
