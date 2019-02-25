@@ -117,7 +117,7 @@ pagehelper.params=count=countSql
         缓存配置
            diskStore：指定数据在磁盘中的存储位置。
            name:缓存名称。
-           defaultCache：当借助CacheManager.add("demoCache")创建Cache时，EhCache便会采用<defalutCache/>指定的的管理策略
+           defaultCache：当借助CacheManager.add("demoCache")创建Cache时，EhCache便会采用<defalutCache/>指定的的管理策略。
            maxElementsInMemory：缓存最大个数。
            eternal:对象是否永久有效，一但设置了，timeout将不起作用。
            timeToIdleSeconds：设置对象在失效前的允许闲置时间（单位：秒）。
