@@ -125,7 +125,8 @@ pagehelper.params=count=countSql
            timeToLiveSeconds：设置对象在失效前允许存活时间（单位：秒）。最大时间介于创建时间和失效时间之间。
            仅当eternal=false对象不是永久有效时使用，默认是0.，也就是对象存活时间无穷大。
            overflowToDisk：当内存中对象数量达到maxElementsInMemory时，Ehcache将会对象写到磁盘中。
-           diskSpoolBufferSizeMB：这个参数设置DiskStore（磁盘缓存）的缓存区大小。默认是30MB。每个Cache都应该有自己的一个缓冲区。
+           diskSpoolBufferSizeMB：这个参数设置DiskStore（磁盘缓存）的缓存区大小。默认是30MB。
+           每个Cache都应该有自己的一个缓冲区。
            maxElementsOnDisk：硬盘最大缓存个数。
            diskPersistent：是否缓存虚拟机重启期数据，默认false.
            diskExpiryThreadIntervalSeconds：磁盘失效线程运行时间间隔，默认是120秒。
