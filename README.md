@@ -117,7 +117,7 @@ pagehelper.params=count=countSql
         缓存配置
            diskStore：指定数据在磁盘中的存储位置。
            name:缓存名称。
-           defaultCache：当借助CacheManager.add("demoCache")创建Cache时，EhCache便会采用<defalutCache/>指定的的管理策略。
+           defaultCache：当借助CacheManager.add("demoCache")创建Cache时，便会采用<defalutCache/>指定的的管理策略。
            maxElementsInMemory：缓存最大个数。
            eternal:对象是否永久有效，一但设置了，timeout将不起作用。
            timeToIdleSeconds：设置对象在失效前的允许闲置时间（单位：秒）。
@@ -133,7 +133,7 @@ pagehelper.params=count=countSql
            memoryStoreEvictionPolicy：当达到maxElementsInMemory限制时，Ehcache将会根据指定的策略去清理内存。
            默认策略是LRU（最近最少使用）。你可以设置为FIFO（先进先出）或是LFU（较少使用）。
            clearOnFlush：内存数量最大时是否清除。
-           copyOnRead：从缓存中读取数据时时返回对象引用还是复制一个对象返回，默认false，即返回引用，这种情况下都是相同对象。
+           copyOnRead：从缓存中读取数据时时返回对象引用还是复制一个对象返回，默认false，即返回引用。
            copyOnWrite：判断写入缓存时是直接缓存对象引用还是复制一个对象后缓存，默认false。
     -->
     <diskStore path="e:\ehcache"/>
