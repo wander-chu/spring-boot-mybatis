@@ -21,6 +21,8 @@
         <pagehelper.starter.version>1.2.5</pagehelper.starter.version>
         <ehcache.version>2.10.6</ehcache.version>
         <mybatis.ehcache.version>1.1.0</mybatis.ehcache.version>
+        <redis.version>2.8.0</redis.version>
+        <mybatis.redis.version>1.0.0-beta2</mybatis.redis.version>
     </properties>
 
     <dependencies>
@@ -56,6 +58,18 @@
             <groupId>org.mybatis.caches</groupId>
             <artifactId>mybatis-ehcache</artifactId>
             <version>${mybatis.ehcache.version}</version>
+        </dependency>
+
+        <!--mybatis redis-->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${redis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.caches</groupId>
+            <artifactId>mybatis-redis</artifactId>
+            <version>${mybatis.redis.version}</version>
         </dependency>
 
         <!--mapper-->

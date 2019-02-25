@@ -10,11 +10,10 @@ Spring Boot集成MyBatis、通用Mapper、分页插件PageHelper。
 6. 标签if、where、foreach、bind等的用法
 7. 查询结果返回Map的方法
 8. 延迟加载的使用
-9. 缓存的使用（MyBatis缓存、EhCache缓存）
+9. 缓存的使用（MyBatis缓存、EhCache缓存、Redis缓存）
 
 ## 后续功能
 * 存储过程的使用
-* Redis缓存
 * 持续更新……
 
 ## 项目依赖
@@ -25,6 +24,8 @@ Spring Boot集成MyBatis、通用Mapper、分页插件PageHelper。
     <pagehelper.starter.version>1.2.5</pagehelper.starter.version>
     <ehcache.version>2.10.6</ehcache.version>
     <mybatis.ehcache.version>1.1.0</mybatis.ehcache.version>
+    <redis.version>2.8.0</redis.version>
+    <mybatis.redis.version>1.0.0-beta2</mybatis.redis.version>
 </properties>
 
 <dependencies>
@@ -44,6 +45,17 @@ Spring Boot集成MyBatis、通用Mapper、分页插件PageHelper。
         <groupId>org.mybatis.caches</groupId>
         <artifactId>mybatis-ehcache</artifactId>
         <version>${mybatis.ehcache.version}</version>
+    </dependency>
+    <!--mybatis redis-->
+    <dependency>
+        <groupId>redis.clients</groupId>
+        <artifactId>jedis</artifactId>
+        <version>${redis.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.mybatis.caches</groupId>
+        <artifactId>mybatis-redis</artifactId>
+        <version>${mybatis.redis.version}</version>
     </dependency>
     <!--mapper-->
     <dependency>
@@ -78,6 +90,15 @@ pagehelper.helperDialect=mysql
 pagehelper.reasonable=true
 pagehelper.supportMethodsArguments=true
 pagehelper.params=count=countSql
+
+# redis
+spring.redis.host=127.0.0.1
+spring.redis.port=6379
+spring.redis.password=
+spring.redis.database=0
+spring.redis.jedis.pool.max-active=8
+spring.redis.jedis.pool.max-wait= -1ms
+spring.redis.jedis.pool.max-idle=500
 ```
 
 ## mybatis-config.xml
