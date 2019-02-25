@@ -2,6 +2,7 @@ package com.example.springbootmybatis.mapper;
 
 import com.example.springbootmybatis.model.Province;
 import com.example.springbootmybatis.utils.MyMapper;
+import org.apache.ibatis.annotations.CacheNamespaceRef;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -11,6 +12,7 @@ import java.util.Map;
 /**
  * 省份Mapper
  */
+@CacheNamespaceRef(ProvinceMapper.class)
 public interface ProvinceMapper extends MyMapper<Province> {
     /**
      * 返回存在城市的省份列表
@@ -29,7 +31,6 @@ public interface ProvinceMapper extends MyMapper<Province> {
      * @return 省份实体对象列表
      */
     List<Province> getAllProvinces();
-
 
     /**
      * 根据省份名称或省份代码列表获取省份信息

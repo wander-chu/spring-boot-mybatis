@@ -1,11 +1,12 @@
 package com.example.springbootmybatis.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 省份model
  */
-public class Province extends BaseEntity {
+public class Province extends BaseEntity implements Serializable {
     /**
      * 代码
      */
