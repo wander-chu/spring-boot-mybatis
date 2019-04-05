@@ -8,17 +8,17 @@
            <!--readOnly="false"/>-->
 
     <!--二级缓存配置-EhCache-->
-    <!--<cache type="org.mybatis.caches.ehcache.EhcacheCache">-->
-        <!--&lt;!&ndash; 同ehcache参数maxElementsInMemory &ndash;&gt;-->
-        <!--<property name="maxEntriesLocalHeap" value="1000"/>-->
-        <!--&lt;!&ndash; 同ehcache参数maxElementsOnDisk &ndash;&gt;-->
-        <!--<property name="maxEntriesLocalDisk" value="10000000"/>-->
-        <!--<property name="memoryStoreEvictionPolicy" value="LRU"/>-->
-    <!--</cache>-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache">
+        <!-- 同ehcache参数maxElementsInMemory -->
+        <property name="maxEntriesLocalHeap" value="1000"/>
+        <!-- 同ehcache参数maxElementsOnDisk -->
+        <property name="maxEntriesLocalDisk" value="10000000"/>
+        <property name="memoryStoreEvictionPolicy" value="LRU"/>
+    </cache>
 
     <!--二级缓存配置-Redis-->
-    <cache type="org.mybatis.caches.redis.RedisCache">
-    </cache>
+    <!--<cache type="org.mybatis.caches.redis.RedisCache">-->
+    <!--</cache>-->
 
     <resultMap id="provinceMap" type="Province">
         <id property="id" column="id"/>

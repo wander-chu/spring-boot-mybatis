@@ -10,6 +10,11 @@ public class City extends BaseEntity {
     private String cityName;
 
     /**
+     * 省份Id
+     */
+    private Integer pId;
+
+    /**
      * 所属省份
      */
     private Province province;
@@ -30,6 +35,24 @@ public class City extends BaseEntity {
      */
     public void setCityName(String cityName) {
         this.cityName = cityName;
+    }
+
+    /**
+     * 获取省份Id
+     *
+     * @return pid 省份Id
+     */
+    public Integer getpId() {
+        return pId;
+    }
+
+    /**
+     * 设置省份Id
+     *
+     * @param pId 省份Id
+     */
+    public void setpId(Integer pId) {
+        this.pId = pId;
     }
 
     /**

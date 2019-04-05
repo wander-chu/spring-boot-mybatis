@@ -3,6 +3,7 @@
 <mapper namespace="com.example.springbootmybatis.mapper.CityMapper">
     <resultMap id="cityMap" type="City">
         <id property="id" column="id"/>
+        <result property="pId" column="p_id"/>
         <result property="cityName" column="city_name"/>
     </resultMap>
     <resultMap id="cityProvinceMap" extends="cityMap" type="City">
@@ -16,7 +17,7 @@
          where id = #{id}
     </select>
     <select id="getCitiesByProvinceId" resultMap="cityMap">
-        select id, city_name
+        select id, p_id, city_name
           from city
          where p_id = #{p_id}
     </select>

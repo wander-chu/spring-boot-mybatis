@@ -1,10 +1,14 @@
 package com.example.springbootmybatis.service;
 
+import com.example.springbootmybatis.mapper.CityMapper;
 import com.example.springbootmybatis.mapper.ProvinceMapper;
+import com.example.springbootmybatis.model.City;
 import com.example.springbootmybatis.model.Province;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import tk.mybatis.mapper.weekend.Weekend;
 import tk.mybatis.mapper.weekend.WeekendCriteria;
 
@@ -18,6 +22,9 @@ import java.util.List;
 public class ProvinceService {
     @Autowired
     private ProvinceMapper provinceMapper;
+
+    @Autowired
+    private CityMapper cityMapper;
 
     /**
      * 通过条件获取省份列表
@@ -38,7 +45,7 @@ public class ProvinceService {
         weekend.or(criteria2);
 
         WeekendCriteria<Province, Object> criteria3 = weekend.weekendCriteria();
-        criteria3.andIn(Province::getProvinceCode, Arrays.asList("XJ","SC"));
+        criteria3.andIn(Province::getProvinceCode, Arrays.asList("XJ", "SC"));
         weekend.or(criteria3);
 
         //排序
@@ -90,5 +97,24 @@ public class ProvinceService {
         } else {
             provinceMapper.insertSelective(province);
         }
+    }
+
+    /**
+     * 保存省份和城市列表信息
+     *
+     * @param province 省份
+     * @param cities   城市列表
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public void saveProvinceAndCities(Province province, List<City> cities) throws Exception {
+        provinceMapper.getAllProvinces();
+        provinceMapper.insert(province);
+        for (City city : cities) {
+            city.setpId(province.getId());
+            cityMapper.insert(city);
+        }
+
+        //throw new Exception("");
+        TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
     }
 }
